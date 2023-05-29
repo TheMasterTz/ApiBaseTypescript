@@ -17,11 +17,8 @@ function getDatabaseNames(): string[] {
   const dbNames: string[] = [];
 
   for (const variable of Object.keys(process.env)) {
-    if (variable.startsWith('DB_NAME')) {
-      const dbName = process.env[variable];
-      if (dbName) {
-        dbNames.push(dbName);
-      }
+    if (variable.startsWith('DB_NAME') && process.env[variable]) {
+      dbNames.push(process.env[variable]!);
     }
   }
 
