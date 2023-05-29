@@ -3,7 +3,7 @@ import connectDB from "./services/ConnetDB.services";
 
 const run = async () => {
   try {
-    const PORT = process.env.PORT || 3000;
+    const PORT = Number(process.env.PORT) || 3000;
     console.clear()
 
     //conecion a la base de datos
