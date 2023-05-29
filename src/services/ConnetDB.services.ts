@@ -40,7 +40,7 @@ export default async function connectDB() {
     Object.entries(conn).map(([db, con]) => con.getConnection()
       .then((conn: any) => {
         conn.release();
-        console.log(`connected DB ${db} ✅`);
+        console.log(`✅ [32mConnected[39m DB 📄 ${db}`);
       })
       .catch((err: any) => console.error(JSON.stringify(err)))
   ))
