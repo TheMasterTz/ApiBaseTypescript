@@ -42,7 +42,7 @@ export default async function connectDB() {
         conn.release();
         console.log(`✅ [32mConnected[39m DB 📄 ${db}`);
       })
-      .catch((err: any) => console.error(JSON.stringify(err)))
+      .catch((err: any) => console.error(`❌ [31mError[39m DB 📄 ${db}`, err.sqlMessage))
   ))
 }
 
