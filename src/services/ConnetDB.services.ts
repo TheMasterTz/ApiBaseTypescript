@@ -17,15 +17,13 @@ function getDatabaseNames(): string[] {
   const dbNames: string[] = [];
 
   for (const variable of Object.keys(process.env)) {
-    if (variable.startsWith('DB_NAME') && process.env[variable]) {
+    if (variable.startsWith('DB_NAME')) {
       dbNames.push(process.env[variable]!);
     }
   }
 
   return dbNames;
 }
-
-const Default_DB = process.env[getDatabaseNames()[0]] as string;
 
 const conn = getDatabaseNames().map((dbName) => ({
   [dbName]: createPool({ ...Options, database: dbName })
@@ -49,7 +47,7 @@ export default async function connectDB() {
  * @param params query parameters
  * @return the response from the database
  */
-export async function query(sql: string, params?: any, DBname: string = Default_DB) {
+export async function query(sql: string, params?: any, DBname: string = getDatabaseNames()[0]) {
   let db = DBname;
   if (typeof params === 'string') db = params;
 
