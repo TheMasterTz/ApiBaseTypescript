@@ -22,6 +22,7 @@ import helmet from "helmet";
 app.use(helmet());
 
 // Parse to JSON
+
 app.use(express.json());
 
 //import routes
