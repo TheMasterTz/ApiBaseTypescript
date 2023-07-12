@@ -7,7 +7,7 @@ import express from "express";
 const app = express();
 
 // Check request status code
-import morgan from "morgan";
+import morgan from "morgan"; //TODO: test
 app.use(morgan("dev"));
 
 // Load vars from .env file
